@@ -434,16 +434,24 @@ footer {
         gap: 10px;
     }
 }
-.site-banner {
+    .site-banner {
     width: 100%;
-    height: auto;
+    height: 380px;
+    overflow: hidden;
+}
+
+.site-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     display: block;
 }
 </style>
 </head>
 
 <body>
-<img src="IMG_0100.png" alt="VAICE Banner"> class="site-banner">
+
 <nav>
     <div class="logo">VAICE</div>
 
@@ -458,30 +466,9 @@ footer {
 
 
 <!-- HERO -->
-
-<header class="hero">
-
-    <div class="hero-inner">
-
-        <div class="hero-small">
-            Minimal Gym & Streetwear
-        </div>
-
-        <h1>VAICE</h1>
-
-        <h2>Minimal Gym & Streetwear</h2>
-
-        <p>
-            Kleidung, die durch Qualität überzeugt.
-        </p>
-
-        <a class="button" href="#preorder">
-            Pre-Order sichern
-        </a>
-
-    </div>
-
-</header>
+<div class="site-banner">
+    <img src="IMG_0100.png" alt="VAICE Banner">
+</div>
 
 
 <!-- PRODUCTS -->
