@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VAICE — Minimal Gym & Streetwear</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f4f0;
+    color: #111;
+    line-height: 1.5;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 74px;
+    background: rgba(245,244,240,0.94);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 9px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #111;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+    opacity: .5;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 20px 80px;
+}
+
+.hero-inner {
+    max-width: 900px;
+}
+
+.hero-small {
+    font-size: 12px;
+    letter-spacing: 7px;
+    color: #777;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 15vw, 170px);
+    font-weight: 800;
+    letter-spacing: 18px;
+    margin-right: -18px;
+}
+
+.hero h2 {
+    margin-top: 25px;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 400;
+}
+
+.hero p {
+    max-width: 580px;
+    margin: 22px auto 35px;
+    color: #555;
+    font-size: 17px;
+}
+
+.button {
+    display: inline-block;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    padding: 16px 34px;
+    border-radius: 50px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: .25s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background: #f26b21;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 110px 5%;
+}
+
+.section-label {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #777;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.section-title {
+    font-size: clamp(38px, 6vw, 72px);
+    letter-spacing: -2px;
+    margin-bottom: 55px;
+}
+
+/* PRODUCTS */
+
+.products {
+    background: #eeece7;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: #f8f8f6;
+    overflow: hidden;
+}
+
+.product-image {
+    aspect-ratio: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #bbb;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.product-image span {
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+}
+
+.product-info {
+    padding: 25px;
+}
+
+.product-info h3 {
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.product-info p {
+    color: #777;
+    font-size: 13px;
+}
+
+.price {
+    margin-top: 18px;
+    font-weight: 700;
+}
+
+.product-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #111;
+    text-decoration: none;
+    font-size: 13px;
+    border-bottom: 1px solid #111;
+}
+
+/* PRODUCT DETAILS */
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.details-text h2 {
+    font-size: clamp(40px, 6vw, 70px);
+    margin-bottom: 25px;
+}
+
+.details-text p {
+    color: #666;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+.detail-list {
+    margin-top: 35px;
+    display: grid;
+    gap: 15px;
+}
+
+.detail-item {
+    padding: 17px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.detail-image {
+    background: #111;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    letter-spacing: 5px;
+}
+
+/* STORY */
+
+.story {
+    background: #111;
+    color: white;
+    text-align: center;
+}
+
+.story .section-label {
+    color: #888;
+}
+
+.story h2 {
+    font-size: clamp(40px, 7vw, 85px);
+    margin-bottom: 30px;
+}
+
+.story p {
+    max-width: 650px;
+    margin: auto;
+    color: #aaa;
+    font-size: 19px;
+}
+
+/* STUDIO */
+
+.studio {
+    text-align: center;
+}
+
+.coming-soon {
+    min-height: 400px;
+    background: #111;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.coming-soon h2 {
+    font-size: clamp(45px, 8vw, 100px);
+    letter-spacing: 8px;
+}
+
+.coming-soon p {
+    margin-top: 15px;
+    color: #999;
+    letter-spacing: 4px;
+}
+
+/* GALLERY */
+
+.gallery {
+    background: #eeece7;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px;
+}
+
+.gallery-box {
+    min-height: 300px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    letter-spacing: 3px;
+}
+
+.gallery-box.large {
+    min-height: 615px;
+}
+
+/* PREORDER */
+
+.preorder {
+    text-align: center;
+}
+
+.preorder p {
+    max-width: 600px;
+    margin: -25px auto 35px;
+    color: #666;
+}
+
+/* FOOTER */
+
+footer {
+    background: #111;
+    color: white;
+    padding: 70px 5% 30px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.footer-logo {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-bottom {
+    padding-top: 25px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    nav {
+        height: 64px;
+    }
+
+    .logo {
+        font-size: 21px;
+        letter-spacing: 6px;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .details {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .detail-image {
+        min-height: 350px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-box.large {
+        min-height: 400px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">VAICE</div>
+
+    <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#story">The Idea</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#preorder">Pre-Order</a>
+        <a href="https://instagram.com/vaice_de">Instagram</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-small">
+            Minimal Gym & Streetwear
+        </div>
+
+        <h1>VAICE</h1>
+
+        <h2>Minimal Gym & Streetwear</h2>
+
+        <p>
+            Kleidung, die durch Qualität überzeugt.
+        </p>
+
+        <a class="button" href="#preorder">
+            Pre-Order sichern
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- PRODUCTS -->
+
+<section class="products" id="products">
+
+    <div class="section-label">01 / Products</div>
+
+    <h2 class="section-title">Core</h2>
+
+    <div class="product-grid">
+
+        <article class="product-card">
+            <div class="product-image">
+                <span>SHIRT IMAGE</span>
+            </div>
+
+            <div class="product-info">
+                <h3>WHITE / BLACK STITCH</h3>
+                <p>VAICE Core · Heavyweight</p>
+                <div class="price">25 €</div>
+                <a class="product-link" href="#preorder">
+                    Details →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="product-card">
+            <div class="product-image">
+                <span>SHIRT IMAGE</span>
+            </div>
+
+            <div class="product-info">
+                <h3>WHITE / ORANGE STITCH</h3>
+                <p>VAICE Core · Heavyweight</p>
+                <div class="price">25 €</div>
+                <a class="product-link" href="#preorder">
+                    Details →
+                </a>
+            </div>
+        </article>
+
+
+        <article class="product-card">
+            <div class="product-image">
+                <span>SHIRT IMAGE</span>
+            </div>
+
+            <div class="product-info">
+                <h3>BLACK / WHITE STITCH</h3>
+                <p>VAICE Core · Heavyweight</p>
+                <div class="price">25 €</div>
+                <a class="product-link" href="#preorder">
+                    Details →
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- DETAILS -->
+
+<section>
+
+    <div class="details">
+
+        <div class="details-text">
+
+            <div class="section-label">VAICE Core</div>
+
+            <h2>Built to move.</h2>
+
+            <p>
+                Die Core Collection steht für den ersten Schritt von VAICE:
+                klare Schnitte, ein cleanes Erscheinungsbild und ein
+                hochwertiger Heavyweight-Look.
+            </p>
+
+            <div class="detail-list">
+
+                <div class="detail-item">
+                    EMBROIDERED VAICE LOGO
+                </div>
+
+                <div class="detail-item">
+                    OVERSIZED FIT
+                </div>
+
+                <div class="detail-item">
+                    HEAVYWEIGHT COTTON
+                </div>
+
+                <div class="detail-item">
+                    MADE IN GERMANY
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="detail-image">
+            VAICE / CORE
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- THE IDEA -->
+
+<section class="story" id="story">
+
+    <div class="section-label">The Idea</div>
+
+    <h2>VAICE</h2>
+
+    <p>
+        VAICE steht für minimalistische Gym- und Streetwear.
+        Kleidung, die durch Qualität überzeugt.
+    </p>
+
+</section>
+
+
+<!-- STUDIO -->
+
+<section class="studio">
+
+    <div class="section-label">Products / Studio</div>
+
+    <h2 class="section-title">Studio</h2>
+
+    <div class="coming-soon">
+
+        <h2>COMING SOON</h2>
+
+        <p>
+            MORE IS ON THE WAY
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-label">Gallery</div>
+
+    <h2 class="section-title">VAICE / VISUALS</h2>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-box large">
+            COMING SOON
+        </div>
+
+        <div>
+
+            <div class="gallery-box">
+                COMING SOON
+            </div>
+
+            <br>
+
+            <div class="gallery-box">
+                COMING SOON
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PREORDER -->
+
+<section class="preorder" id="preorder">
+
+    <div class="section-label">02 / Pre-Order</div>
+
+    <h2 class="section-title">
+        Secure yours.
+    </h2>
+
+    <p>
+        Sichere dir dein VAICE Core Shirt.
+        Wähle Modell, Farbe, Größe und Stückzahl.
+    </p>
+
+    <a class="button"
+       href="https://forms.gle/rdnCjpw26ywvB8RT6"
+       target="_blank">
+
+        Pre-Order öffnen
+
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div class="footer-logo">
+            VAICE
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#products">Products</a>
+
+            <a href="#story">The Idea</a>
+
+            <a href="#gallery">Gallery</a>
+
+            <a href="#preorder">Pre-Order</a>
+
+            <a href="https://instagram.com/vaice_de">
+                Instagram
+            </a>
+
+            <a href="#">
+                Impressum
+            </a>
+
+            <a href="#">
+                Datenschutz
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <span>
+            Designed in Salzkotten · Veredelt in Paderborn
+        </span>
+
+        <span>
+            © 2026 VAICE
+        </span>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
