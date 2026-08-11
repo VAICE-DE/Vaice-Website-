@@ -436,19 +436,22 @@ footer {
 }
 }  /* Ende @media */
 
-.site-banner {
-    width: 100%;
-    margin-top: 0;
-    overflow: visible;
+.site-banner img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 .site-banner img {
-    width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    object-position: center !important;
     display: block;
-    object-fit: contain;
-    object-position: center;
 }
+
 </style>
 </head>
 
